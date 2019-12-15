@@ -1,6 +1,7 @@
 # cpp_list_comprehension
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
+`boost::phoenix` uses function which are evaluated later, so called layz funcitons. For any function you which shall be invoked in lazy context must previously be prepared to be a lazy function.
 ## 1. example common C++ way to C++ list comprehension
 This C++ code:
 ```C++
@@ -27,6 +28,7 @@ can be written with list comprehension:
 #include <vector>
 #include <iostream>
 #include <comprehension.h>
+// make sqrt lazy
 struct Isqrt
 {
     using result_type = int;
@@ -83,12 +85,13 @@ This Python code:
 ```
 can be writtein in C++ like:
 ```C++
+// make std::tolower lazy
 struct Lower
 {
     using result_type = char;
     char operator()(char chr) const
     {
-        return std::toupper(chr);
+        return std::toulower(chr);
     }
 };
 boost::phoenix::function<Upper> ph_lower;
