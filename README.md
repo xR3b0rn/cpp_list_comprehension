@@ -28,10 +28,10 @@ can be written with list comprehension:
 #include <vector>
 #include <iostream>
 #include <comprehension.h>
-// make sqrt lazy
 int main()
 {
     using namespace boost::phoenix;
+    // make sqrt lazy
     auto ph_isqrt = comprehension::make_lazy<int, decltype(::sqrt), ::sqrt>();
     int var = 1028;
     comprehension::CompVec<std::vector<int>> lis
@@ -78,10 +78,10 @@ This Python code:
 ```
 can be writtein in C++ like:
 ```C++
-// make std::tolower lazy
 int main()
 {
     using namespace boost::phoenix;
+    // make std::tolower lazy
     auto ph_lower = comprehension::make_lazy<char, decltype(std::tolower), std::tolower>()
     char e;
     comprehension::CompVec<std::vector<char>> vec
