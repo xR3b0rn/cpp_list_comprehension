@@ -31,7 +31,6 @@ namespace comprehension
 		CompVec(const F1& fu, const Args&... args)
 			: base1_t{}
 		{
-			static_assert(std::is_invocable_v<F1>);
 			ins(fu, args...);
 		}
 
