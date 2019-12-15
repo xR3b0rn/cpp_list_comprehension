@@ -1,5 +1,5 @@
 # cpp_list_comprehension
-Library which introduces pythons list comprehension to C++.
+A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
 ```C++
 #include <vector>
