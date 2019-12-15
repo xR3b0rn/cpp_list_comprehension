@@ -103,7 +103,6 @@ int main()
 }
 ```
 ## 4. example if_
-Filtering is also possible:
 ```C++
 int main()
 {
