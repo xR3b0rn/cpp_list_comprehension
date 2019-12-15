@@ -32,7 +32,7 @@ int main()
 {
     using namespace boost::phoenix;
     // make sqrt lazy
-    auto ph_isqrt = comprehension::make_lazy<int, decltype(::sqrt), ::sqrt>();
+    auto ph_isqrt = comprehension::make_lazy<int, float(float), ::sqrt>();
     int var = 1028;
     comprehension::CompVec<std::vector<int>> lis
         (
