@@ -71,7 +71,7 @@ int main()
     std::string str;
     comprehension::CompVec<std::vector<char>> vec
         (
-              boost::phoenix::ref(str)
+              ref(str)[val(0)]
             , for_each_(val(listOfWords), ref(str))
         );
 }
@@ -97,8 +97,8 @@ int main()
     char e;
     comprehension::CompVec<std::vector<char>> vec
         (
-              ph_lower(boost::phoenix::ref(e))
-            , for_each_(boost::phoenix::val(std::string("ABC")), boost::phoenix::ref(e))
+              ph_lower(ref(e))
+            , for_each_(val(std::string("ABC")), ref(e))
         );
 }
 ```
