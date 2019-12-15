@@ -29,19 +29,10 @@ can be written with list comprehension:
 #include <iostream>
 #include <comprehension.h>
 // make sqrt lazy
-struct Isqrt
-{
-    using result_type = int;
-    template <class T>
-    int operator()(const T& val) const
-    {
-        return (int)::sqrt(val);
-    }
-};
-boost::phoenix::function<Isqrt> ph_isqrt;
 int main()
 {
     using namespace boost::phoenix;
+    auto ph_isqrt = comprehension::make_lazy<int, decltype(::sqrt), ::sqrt>();
     int var = 1028;
     comprehension::CompVec<std::vector<int>> lis
         (
@@ -70,6 +61,7 @@ can be written in C++ like:
 ```C++
 int main()
 {
+    using namespace boost::phoenix;
     std::vector<std::string> listOfWords{"this","is","a","list","of","words"}
     std::string str;
     comprehension::CompVec<std::vector<char>> vec
@@ -87,17 +79,10 @@ This Python code:
 can be writtein in C++ like:
 ```C++
 // make std::tolower lazy
-struct Lower
-{
-    using result_type = char;
-    char operator()(char chr) const
-    {
-        return std::toulower(chr);
-    }
-};
-boost::phoenix::function<Upper> ph_lower;
 int main()
 {
+    using namespace boost::phoenix;
+    auto ph_lower = comprehension::make_lazy<char, decltype(std::tolower), std::tolower>()
     char e;
     comprehension::CompVec<std::vector<char>> vec
         (
@@ -111,6 +96,7 @@ int main()
 ```C++
 int main()
 {
+    using namespace boost::phoenix;
     int i;
     // vector with all even numbers from 0 to 100
     comprehension::CompVec<std::vector<int>> l2
