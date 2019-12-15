@@ -2,7 +2,7 @@
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
 ## 1. example
-This code:
+This C++ code:
 ```C++
 #include <vector>
 #include <iostream>
@@ -58,7 +58,7 @@ and produces:
 2
 ```
 ## 2. example
-This code:
+This Python3 code:
 ```python
 listOfWords = ["this","is","a","list","of","words"]
 items = [ word[0] for word in listOfWords ]
@@ -77,7 +77,7 @@ int main()
 }
 ```
 ## 3. example
-This code:
+This Python code:
 ```python
 [x.lower() for x in ["A","B","C"]]
 ```
