@@ -110,10 +110,10 @@ int main()
     int i;
     // vector with all even numbers from 0 to 100
     comprehension::CompVec<std::vector<int>> l2
-		(
-			  ref(i)
-			, for_(ref(i) = 0, ref(i) <= 100, ref(i)++)
-			, if_(ref(i) % 2 == 0)
-		);
+        (
+              ref(i)
+            , for_(ref(i) = 0, ref(i) <= 100, ref(i)++)
+            , if_(ref(i) % 2 == 0)
+	);
 }
 ```
