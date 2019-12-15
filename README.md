@@ -1,11 +1,31 @@
 # cpp_list_comprehension
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
+This code:
+```
+#include <vector>
+#include <iostream>
+int main()
+{
+        std::vector<int> vec;
+	int var = 1028;
+	do
+	{
+	    int r = ::sqrt(var);
+	    vec.push_back(r);
+	    var -= r * r;
+	} while (var > 0)
+	for (const auto& e : lis)
+	{
+		std::cout << e << std::endl;
+	}
+}
+```
+can be written with list comprehension:
 ```C++
 #include <vector>
 #include <iostream>
 #include <comprehension.h>
-
 struct Isqrt
 {
 	using result_type = int;
@@ -19,7 +39,6 @@ boost::phoenix::function<Isqrt> ph_isqrt;
 int main()
 {
 	using namespace boost::phoenix;
-	using namespace boost::phoenix::placeholders;
 	int var = 1028;
 	comprehension::CompVec<std::vector<int>> lis
 		(
@@ -32,7 +51,7 @@ int main()
 	}
 }
 ```
-Produces:
+and produces:
 ```
 32
 2
