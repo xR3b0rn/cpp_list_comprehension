@@ -1,7 +1,7 @@
 # cpp_list_comprehension
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
-## 1. example
+## 1. example common C++ way to C++ list comprehension
 This C++ code:
 ```C++
 #include <vector>
@@ -57,7 +57,7 @@ and produces:
 32
 2
 ```
-## 2. example
+## 2. example Python3 to C++ with for_each_
 This Python3 code:
 ```python
 listOfWords = ["this","is","a","list","of","words"]
@@ -76,7 +76,7 @@ int main()
         );
 }
 ```
-## 3. example
+## 3. example Python3 to C++ with for_each_
 This Python code:
 ```python
 [x.lower() for x in ["A","B","C"]]
@@ -100,5 +100,20 @@ int main()
               ph_lower(ref(e))
             , for_each_(val(std::string("ABC")), ref(e))
         );
+}
+```
+## 4. example if_
+Filtering is also possible:
+```C++
+int main()
+{
+    int i;
+    // vector with all even numbers from 0 to 100
+    comprehension::CompVec<std::vector<int>> l2
+		(
+			  ref(i)
+			, for_(ref(i) = 0, ref(i) <= 100, ref(i)++)
+			, if_(ref(i) % 2 == 0)
+		);
 }
 ```
