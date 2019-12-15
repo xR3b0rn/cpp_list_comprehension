@@ -5,6 +5,7 @@
 #include <boost/phoenix.hpp>
 
 #include "do__.h"
+#include "for_each_.h"
 
 namespace comprehension
 {
