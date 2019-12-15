@@ -45,6 +45,7 @@ int main()
     int var = 1028;
     comprehension::CompVec<std::vector<int>> lis
         (
+            // use lazy ph_isqrt in lazy context
               ph_isqrt(ref(var))
             , do__((ref(var) -= (ph_isqrt(ref(var)) * ph_isqrt(ref(var)))) > 0)
         );
@@ -100,6 +101,7 @@ int main()
     char e;
     comprehension::CompVec<std::vector<char>> vec
         (
+            // use lazy function ph_lower in lazy context
               ph_lower(ref(e))
             , for_each_(val(std::string("ABC")), ref(e))
         );
