@@ -37,7 +37,7 @@ namespace comprehension
 
 	private:
 		template <class F1, class F2>
-		auto ins(const F1& fu, const F2& fo)
+		void ins(const F1& fu, const F2& fo)
 		{
 			fo
 			[
