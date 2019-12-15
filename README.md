@@ -1,6 +1,7 @@
 # cpp_list_comprehension
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
+## 1. example
 This code:
 ```C++
 #include <vector>
@@ -55,4 +56,49 @@ and produces:
 ```
 32
 2
+```
+## 2. example
+This code:
+```python
+listOfWords = ["this","is","a","list","of","words"]
+items = [ word[0] for word in listOfWords ]
+```
+can be written in C++ like:
+```C++
+int main()
+{
+    std::vector<std::string> listOfWords{"this","is","a","list","of","words"}
+    std::string str;
+    comprehension::CompVec<std::vector<char>> vec
+        (
+              boost::phoenix::ref(str)
+            , for_each_(val(listOfWords), ref(str))
+        );
+}
+```
+## 3. example
+This code:
+```python
+[x.lower() for x in ["A","B","C"]]
+```
+can be writtein in C++ like:
+```C++
+struct Lower
+{
+    using result_type = char;
+    char operator()(char chr) const
+    {
+        return std::toupper(chr);
+    }
+};
+boost::phoenix::function<Upper> ph_lower;
+int main()
+{
+    char e;
+    comprehension::CompVec<std::vector<char>> vec
+        (
+              ph_lower(boost::phoenix::ref(e))
+            , for_each_(boost::phoenix::val(std::string("ABC")), boost::phoenix::ref(e))
+        );
+}
 ```
