@@ -1,7 +1,7 @@
 # cpp_list_comprehension
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
-`boost::phoenix` uses function which are evaluated later, so called layz funcitons. For any function which shall be invoked in lazy context must previously made lazy.
+`boost::phoenix` uses function which are evaluated later, so called layz funcitons. Any function which shall be invoked in lazy context must previously made lazy. Lazy context is anywhere in a list comprehension statement.
 ## 1. example common C++ way to C++ list comprehension
 This C++ code:
 ```C++
