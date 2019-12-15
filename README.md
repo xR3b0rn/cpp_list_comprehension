@@ -1,7 +1,7 @@
 # cpp_list_comprehension
 Library which introduces pythons list comprehension to C++.
 # Usage example
-```
+```C++
 #include <vector>
 #include <iostream>
 #include <comprehension.h>
