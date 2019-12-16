@@ -34,6 +34,7 @@ int main()
     // make sqrt lazy
     auto ph_isqrt = comprehension::make_lazy<int, float(float), ::sqrt>();
     int var = 1028;
+    // any container with begin(), end(), cbegin(), cend(), push_back(const T& e) defined can be used here
     comprehension::CompVec<std::vector<int>> lis
         (
             // use lazy ph_isqrt in lazy context
