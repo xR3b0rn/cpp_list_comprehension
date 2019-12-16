@@ -2,7 +2,7 @@
 A library which introduces pythons list comprehension to C++ based on `boost::phoenix`.
 # Usage example
 `boost::phoenix` uses function which are evaluated later, so called layz funcitons. Any function which shall be invoked in lazy context must previously made lazy. Lazy context is anywhere in a list comprehension statement.
-## 1. example common C++ way to C++ list comprehension
+## 1. Example: common C++ way to C++ list comprehension
 This C++ code:
 ```C++
 #include <vector>
@@ -51,13 +51,13 @@ and produces:
 32
 2
 ```
-## 2. example Python3 to C++ with for_each_
+## 2. Example: Python3 to C++ with for_each_
 This Python3 code:
 ```python
 listOfWords = ["this","is","a","list","of","words"]
 items = [ word[0] for word in listOfWords ]
 ```
-can be written in C++ like:
+can be written in C++:
 ```C++
 int main()
 {
@@ -71,12 +71,12 @@ int main()
         );
 }
 ```
-## 3. example Python3 to C++ with for_each_
+## 3. Example: Python3 to C++ with for_each_
 This Python code:
 ```python
 [x.lower() for x in ["A","B","C"]]
 ```
-can be writtein in C++ like:
+can be writtein in C++:
 ```C++
 int main()
 {
@@ -92,7 +92,7 @@ int main()
         );
 }
 ```
-## 4. example if_
+## 4. Example: for_ and if_
 ```C++
 int main()
 {
